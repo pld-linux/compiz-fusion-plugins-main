@@ -3,22 +3,24 @@ Summary(pl.UTF-8):	Główne wtyczki Compiz Fusion
 Name:		compiz-fusion-plugins-main
 Version:	0.5.2
 Release:	1
-License:	GPL
+License:	GPL v2+
 Group:		X11
 Source0:	http://releases.compiz-fusion.org/%{version}/%{name}-%{version}.tar.bz2
 # Source0-md5:	cb5703d8e59697dd6c7b075c483e81cc
 URL:		http://forum.compiz-fusion.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf >= 2.57
-BuildRequires:	automake >= 1:1.7
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairo-devel >= 1.0
 BuildRequires:	compiz-bcop >= %{version}
 BuildRequires:	compiz-devel >= %{version}
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	intltool >= 0.35.0
+BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
-BuildRequires:	pango-devel
+BuildRequires:	pango-devel >= 1:1.10.0
 BuildRequires:	pkgconfig
+# GConf2-devel + compiz-gconf.pc to install schemas
 Requires:	compiz >= %{version}
 Obsoletes:	beryl-plugins
 Obsoletes:	beryl-plugins-unsupported
@@ -34,7 +36,7 @@ Expo: Displays all viewports and allows the movement of a window from
 Enhanced Zoom (ezoom): Improved version of the Zoom plugin, featuring
     interaction with windows while zooming, plus several accessibility
     improvements such as focus tracking.
-Jpeg: Adds jpeg images support to Compiz.
+Jpeg: Adds JPEG images support to Compiz.
 Neg: Shows negatives of windows.
 Opacify: Reduce opacity of windows overlapping the window currently
     hovered over by the mouse pointer.
@@ -70,7 +72,7 @@ Expo: Wyświetla wszystkie viewporty i umożliwia przesuwanie okien z
 Enhanced Zoom (ezoom): Rozszerzona wersja wtyczki Zoom, umożliwia
     interakcję z oknami podczas powiększenia, plus wiele udoskonaleń
     dostępności, jak na przykład śledzenie focusa.
-Jpeg: Dodaje wsparcie dla obrazów jpeg.
+Jpeg: Dodaje do Compiza obsługę obrazów JPEG.
 Neg: Pokazuje negatywy okien.
 Opacify: Zwiększa przezroczystość okien nachodzących na okno nad
     którym aktualnie znajduje się kursor myszy.
@@ -98,15 +100,18 @@ Workarounds: Kilka obejść które poprawiają zachowanie starych
     aplikacji.
 
 %package devel
-Summary:	Header files for %{name}
-Summary(pl.UTF-8):	Pliki nagłówkowe dla %{name}
+Summary:	Header file for compiz-text plugin
+Summary(pl.UTF-8):	Plik nagłówkowy wtyczki compiz-text
 Group:		X11/Developement/Libraries
+Requires:	cairo-devel >= 1.0
+Requires:	compiz-devel >= %{vesion}
+Requires:	pango-devel >= 1:1.10.0
 
 %description devel
-Header files for %{name}.
+Header file for compiz-text plugin.
 
 %description devel -l pl.UTF-8
-Pliki nagłówkowe dla %{name}.
+Plik nagłówkowy wtyczki compiz-text.
 
 %prep
 %setup -q
@@ -131,6 +136,9 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/compiz/*.la
 
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{pl_PL,pl}
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{pt_PT,pt}
+
 %find_lang %{name}
 
 %clean
@@ -144,5 +152,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/compiz/*
-%{_pkgconfigdir}/*
+%{_includedir}/compiz/text.h
+%{_pkgconfigdir}/compiz-text.pc
