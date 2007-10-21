@@ -1,12 +1,12 @@
 Summary:	Main Compiz Fusion plugins
 Summary(pl.UTF-8):	Główne wtyczki Compiz Fusion
 Name:		compiz-fusion-plugins-main
-Version:	0.5.2
-Release:	3
+Version:	0.6.0
+Release:	1
 License:	GPL v2+
 Group:		X11
 Source0:	http://releases.compiz-fusion.org/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	cb5703d8e59697dd6c7b075c483e81cc
+# Source0-md5:	a500d34eb2a2a2ffaa933b6434b03656
 URL:		http://forum.compiz-fusion.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf >= 2.57
@@ -136,9 +136,6 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/compiz/*.la
 
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{pl_PL,pl}
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{pt_PT,pt}
-
 %find_lang %{name}
 
 %clean
@@ -149,6 +146,11 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS
 %attr(755,root,root) %{_libdir}/compiz/*.so
 %{_datadir}/compiz/*.xml
+%dir %{_datadir}/compiz/filters
+%{_datadir}/compiz/filters/contrast
+%{_datadir}/compiz/filters/grayscale
+%{_datadir}/compiz/filters/negative
+%{_datadir}/compiz/filters/negative-green
 
 %files devel
 %defattr(644,root,root,755)
