@@ -1,19 +1,19 @@
 Summary:	Main Compiz Fusion plugins
 Summary(pl.UTF-8):	Główne wtyczki Compiz Fusion
 Name:		compiz-fusion-plugins-main
-Version:	0.6.0
+Version:	0.7.2
 Release:	1
 License:	GPL v2+
 Group:		X11
 Source0:	http://releases.compiz-fusion.org/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	a500d34eb2a2a2ffaa933b6434b03656
+# Source0-md5:	3916d7f772764875c250dff548deaaea
 URL:		http://forum.compiz-fusion.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairo-devel >= 1.0
 BuildRequires:	compiz-bcop >= %{version}
-BuildRequires:	compiz-devel >= %{version}
+BuildRequires:	compiz-devel >= 0.7.2
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libjpeg-devel
@@ -147,12 +147,23 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/compiz/*.so
 %{_datadir}/compiz/*.xml
 %dir %{_datadir}/compiz/filters
+%{_datadir}/compiz/Gnome
+%{_datadir}/compiz/Oxygen
 %{_datadir}/compiz/filters/contrast
 %{_datadir}/compiz/filters/grayscale
 %{_datadir}/compiz/filters/negative
 %{_datadir}/compiz/filters/negative-green
+%{_datadir}/compiz/filters/blackandwhite
+%{_datadir}/compiz/filters/blueish-filter
+%{_datadir}/compiz/filters/deuteranopia
+%{_datadir}/compiz/filters/protanopia
+%{_datadir}/compiz/filters/sepia
+%{_datadir}/compiz/filters/swap-green-blue
+%{_datadir}/compiz/filters/swap-red-blue
+%{_datadir}/compiz/filters/swap-red-green
+
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/compiz/text.h
-%{_pkgconfigdir}/compiz-text.pc
+%{_includedir}/compiz/*.h
+%{_pkgconfigdir}/*.pc
