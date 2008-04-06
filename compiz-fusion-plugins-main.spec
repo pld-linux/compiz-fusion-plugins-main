@@ -1,19 +1,19 @@
 Summary:	Main Compiz Fusion plugins
 Summary(pl.UTF-8):	Główne wtyczki Compiz Fusion
 Name:		compiz-fusion-plugins-main
-Version:	0.7.2
+Version:	0.7.4
 Release:	1
 License:	GPL v2+
 Group:		X11
 Source0:	http://releases.compiz-fusion.org/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	3916d7f772764875c250dff548deaaea
+# Source0-md5:	58c2412e20a55c78b543d2d09cca2aaf
 URL:		http://forum.compiz-fusion.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairo-devel >= 1.0
 BuildRequires:	compiz-bcop >= %{version}
-BuildRequires:	compiz-devel >= 0.7.2
+BuildRequires:	compiz-devel >= %{version}
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libjpeg-devel
