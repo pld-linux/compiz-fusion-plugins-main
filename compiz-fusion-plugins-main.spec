@@ -1,12 +1,12 @@
 Summary:	Main Compiz Fusion plugins
 Summary(pl.UTF-8):	Główne wtyczki Compiz Fusion
 Name:		compiz-fusion-plugins-main
-Version:	0.7.6
+Version:	0.7.8
 Release:	1
 License:	GPL v2+
 Group:		X11
 Source0:	http://releases.compiz-fusion.org/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	f3aa3df79d0f69fd5eb7e92ad56a73e3
+# Source0-md5:	00cd94289669acc8f2174d7d517f4102
 URL:		http://forum.compiz-fusion.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf >= 2.57
