@@ -1,12 +1,12 @@
 Summary:	Main Compiz Fusion plugins
 Summary(pl.UTF-8):	Główne wtyczki Compiz Fusion
 Name:		compiz-fusion-plugins-main
-Version:	0.7.8
+Version:	0.8.2
 Release:	1
 License:	GPL v2+
 Group:		X11
-Source0:	http://releases.compiz-fusion.org/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	00cd94289669acc8f2174d7d517f4102
+Source0:	http://releases.compiz-fusion.org/incoming/compiz-plugins-main-%{version}.tar.bz2
+# Source0-md5:	089402b0b933ba96e8ad7138d957c470
 URL:		http://forum.compiz-fusion.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf >= 2.57
@@ -114,7 +114,7 @@ Header file for compiz-text plugin.
 Plik nagłówkowy wtyczki compiz-text.
 
 %prep
-%setup -q
+%setup -q -n compiz-plugins-main-%{version}
 
 %build
 %{__glib_gettextize}
@@ -136,7 +136,7 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/compiz/*.la
 
-%find_lang %{name}
+%find_lang %{name} --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
