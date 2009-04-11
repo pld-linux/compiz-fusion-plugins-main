@@ -100,18 +100,18 @@ Workarounds: Kilka obejść które poprawiają zachowanie starych
     aplikacji.
 
 %package devel
-Summary:	Header file for compiz-text plugin
-Summary(pl.UTF-8):	Plik nagłówkowy wtyczki compiz-text
+Summary:	Header files for compiz main plugins
+Summary(pl.UTF-8):	Pliki nagłówkowe głównych wtyczkek compiza
 Group:		X11/Developement/Libraries
 Requires:	cairo-devel >= 1.0
 Requires:	compiz-devel >= %{vesion}
 Requires:	pango-devel >= 1:1.10.0
 
 %description devel
-Header file for compiz-text plugin.
+Header files for compiz main plugins.
 
 %description devel -l pl.UTF-8
-Plik nagłówkowy wtyczki compiz-text.
+Pliki nagłówkowe głównych wtyczkek compiza.
 
 %prep
 %setup -q -n compiz-plugins-main-%{version}
@@ -136,12 +136,12 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/compiz/*.la
 
-%find_lang %{name} --all-name
+%find_lang compiz-plugins-main
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}.lang
+%files -f compiz-plugins-main.lang
 %defattr(644,root,root,755)
 %doc AUTHORS
 %attr(755,root,root) %{_libdir}/compiz/*.so
@@ -162,8 +162,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/compiz/filters/swap-red-blue
 %{_datadir}/compiz/filters/swap-red-green
 
-
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/compiz/*.h
-%{_pkgconfigdir}/*.pc
+%{_includedir}/compiz/compiz-animation.h
+%{_includedir}/compiz/compiz-mousepoll.h
+%{_includedir}/compiz/compiz-text.h
+%{_pkgconfigdir}/compiz-animation.pc
+%{_pkgconfigdir}/compiz-mousepoll.pc
+%{_pkgconfigdir}/compiz-text.pc
