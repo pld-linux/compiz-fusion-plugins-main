@@ -1,13 +1,14 @@
+%define	pkgname	compiz-plugins-main
 Summary:	Main Compiz Fusion plugins
 Summary(pl.UTF-8):	Główne wtyczki Compiz Fusion
 Name:		compiz-fusion-plugins-main
-Version:	0.8.2
-Release:	2
+Version:	0.8.4
+Release:	1
 License:	GPL v2+
 Group:		X11
-Source0:	http://releases.compiz-fusion.org/incoming/compiz-plugins-main-%{version}.tar.bz2
-# Source0-md5:	089402b0b933ba96e8ad7138d957c470
-URL:		http://forum.compiz-fusion.org/
+Source0:	http://releases.compiz.org/%{version}/%{pkgname}-%{version}.tar.bz2
+# Source0-md5:	7ac2b073d421a871b4d9f0741dde9164
+URL:		http://www.compiz.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9
@@ -114,7 +115,7 @@ Header files for compiz main plugins.
 Pliki nagłówkowe głównych wtyczkek compiza.
 
 %prep
-%setup -q -n compiz-plugins-main-%{version}
+%setup -q -n %{pkgname}-%{version}
 
 %build
 %{__glib_gettextize}
@@ -136,12 +137,12 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/compiz/*.la
 
-%find_lang compiz-plugins-main
+%find_lang %{pkgname}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f compiz-plugins-main.lang
+%files -f %{pkgname}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS
 %attr(755,root,root) %{_libdir}/compiz/*.so
