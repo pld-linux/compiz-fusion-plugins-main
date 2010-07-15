@@ -2,12 +2,12 @@
 Summary:	Main Compiz Fusion plugins
 Summary(pl.UTF-8):	Główne wtyczki Compiz Fusion
 Name:		compiz-fusion-plugins-main
-Version:	0.8.4
-Release:	2
+Version:	0.8.6
+Release:	1
 License:	GPL v2+
 Group:		X11
 Source0:	http://releases.compiz.org/%{version}/%{pkgname}-%{version}.tar.bz2
-# Source0-md5:	7ac2b073d421a871b4d9f0741dde9164
+# Source0-md5:	bd72b7bc793fb4dae66faf286735760a
 URL:		http://www.compiz.org/
 BuildRequires:	GConf2-devel
 BuildRequires:	OpenGL-GLU-devel
@@ -15,7 +15,9 @@ BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairo-devel >= 1.0
-BuildRequires:	compiz-bcop >= %{version}
+# No current version, take last one:
+#BuildRequires:	compiz-bcop >= %{version}
+BuildRequires:	compiz-bcop >= 0.8.4
 BuildRequires:	compiz-devel >= %{version}
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 2.0
